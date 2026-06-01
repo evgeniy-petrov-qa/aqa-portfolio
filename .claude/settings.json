@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/*.key)",
+      "Read(**/*.pem)",
+      "Read(**/*.p12)",
+      "Read(**/*.pfx)",
+      "Bash(printenv*)",
+      "Bash(env)",
+      "Bash(cat .env*)"
+    ]
+  }
+}

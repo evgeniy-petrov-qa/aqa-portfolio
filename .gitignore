@@ -1,0 +1,24 @@
+# PyCharm
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+
+# Environment variables
+.env
+.env.local
+/reports/
+
+# Personal notes
+NOTES.md
+/.claude/commands/trt.md
+/.claude/settings.local.json
