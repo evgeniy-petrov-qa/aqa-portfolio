@@ -89,26 +89,6 @@ class MainPage(CommonPageBlocks):
         """Toggle the page theme (light ↔ dark)."""
         self.theme_toggle_btn.click()
 
-    def is_dark_theme(self) -> bool:
-        """
-        Check whether dark theme is active.
-
-        Determined by the 'dark' class on the <html> tag.
-
-        :return: True if dark theme is active, False otherwise.
-        """
-        return self.get_theme() == "dark"
-
-    def is_light_theme(self) -> bool:
-        """
-        Check whether light theme is active.
-
-        Determined by the 'light' class on the <html> tag.
-
-        :return: True if light theme is active, False otherwise.
-        """
-        return self.get_theme() == "light"
-
     def get_theme(self) -> str:
         """
         Return the current page theme.

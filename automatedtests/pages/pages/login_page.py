@@ -1,3 +1,5 @@
+from playwright.sync_api import TimeoutError as PlaywrightTimeoutError
+
 from automatedtests.pages.blocks.common_page_block import CommonPageBlocks
 from automatedtests.pages.element import Element
 
@@ -54,6 +56,10 @@ class LoginPage(CommonPageBlocks):
         """Auth error message text."""
         return Element(self.page.get_by_test_id("login-error"))
 
+    @property
+    def continue_with_email_button(self) -> Element:
+        return Element(self.page.get_by_test_id("email-signin-button"))
+
     # ------------------------------------------------------------------
     # Actions
     # ------------------------------------------------------------------
@@ -65,6 +71,13 @@ class LoginPage(CommonPageBlocks):
         :param url: Ignored — URL is fixed via urls.qa_playground.
         """
         super().open_url(f"{self.urls.qa_playground}/login")
+
+    def click_continue_with_email_button(self) -> None:
+        try:
+            self.page.wait_for_load_state("networkidle", timeout=20_000)
+        except PlaywrightTimeoutError:
+            pass
+        self.continue_with_email_button.click()
 
 
 

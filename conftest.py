@@ -6,6 +6,7 @@ import pytest
 from _pytest.config.argparsing import Parser
 from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright, Browser, BrowserContext, Page, Playwright, ViewportSize
+from playwright_stealth import Stealth
 
 from sqlalchemy import text
 from sqlalchemy.exc import OperationalError
@@ -62,6 +63,7 @@ def browser(playwright_instance: Playwright, request: pytest.FixtureRequest) -> 
     browser = getattr(playwright_instance, browser_name).launch(
         headless=headless,
         slow_mo=slow_mo,
+        args=["--disable-blink-features=AutomationControlled"],
     )
     yield browser
     browser.close()
@@ -77,6 +79,11 @@ def context(browser: Browser) -> Generator[BrowserContext, None, None]:
         locale="ru-RU",
         timezone_id="Europe/Moscow",
         record_video_dir="reports/videos",   # None — if video is not needed
+        user_agent=(
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/136.0.0.0 Safari/537.36"
+        ),
     )
     ctx.set_default_timeout(10_000)
     yield ctx
@@ -89,6 +96,7 @@ def context(browser: Browser) -> Generator[BrowserContext, None, None]:
 def page(context: BrowserContext) -> Generator[Page, None, None]:
     """Clean page for each test."""
     page = context.new_page()
+    Stealth().apply_stealth_sync(page)
     yield page
     page.close()
 

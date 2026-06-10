@@ -8,6 +8,7 @@ class LoginPageBlocks(LoginPage):
 
 
     def login_success(self, remember: bool = False) -> None:
+        self.click_continue_with_email_button()
         self.email_input.fill(os.environ["LOGIN"])
         self.password_input.fill(os.environ["PASSWORD"])
         if remember:
@@ -15,10 +16,12 @@ class LoginPageBlocks(LoginPage):
         self.sign_in_button.click()
 
     def login_with_wrong_email(self) -> None:
+        self.click_continue_with_email_button()
         self.email_input.fill(TestData.wrong_email())
         self.password_input.fill(os.environ["PASSWORD"])
         self.sign_in_button.click()
 
     def login_with_invalid_email(self) -> None:
+        self.click_continue_with_email_button()
         self.email_input.fill(TestData.invalid_email())
         self.sign_in_button.click()

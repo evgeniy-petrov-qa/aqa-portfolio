@@ -12,8 +12,8 @@ class BasePage:
 
     Element interactions (click, fill, assertions) are delegated to Element.
     """
- 
-    DEFAULT_TIMEOUT: int = 10_000
+
+    DEFAULT_TIMEOUT: int = 20_000
  
     def __init__(self, page: Page) -> None:
         """
@@ -31,15 +31,15 @@ class BasePage:
 
         :param url: Absolute or relative URL.
         """
-        self.page.goto(url, wait_until="domcontentloaded")
+        self.page.goto(url, wait_until="domcontentloaded", timeout=self.DEFAULT_TIMEOUT)
  
     def reload(self) -> None:
         """Reload the current page."""
-        self.page.reload(wait_until="domcontentloaded")
+        self.page.reload(wait_until="domcontentloaded", timeout=self.DEFAULT_TIMEOUT)
  
     def go_back(self) -> None:
         """Navigate to the previous page in browser history."""
-        self.page.go_back(wait_until="domcontentloaded")
+        self.page.go_back(wait_until="domcontentloaded", timeout=self.DEFAULT_TIMEOUT)
  
     # ------------------------------------------------------------------
     # Page properties

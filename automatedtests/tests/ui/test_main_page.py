@@ -16,7 +16,7 @@ class TestMainPage:
         main_page.open_main_page()
         main_page.footer_login_link.click()
         main_page.should_have_url(f"{main_page.urls.qa_playground}/login")
-        login_page.sign_in_button.should_be_visible()
+        login_page.continue_with_email_button.should_be_visible()
 
     @pytest.mark.regression
     def test_logo_click_navigates_to_home(self, main_page) -> None:
