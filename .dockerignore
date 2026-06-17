@@ -1,0 +1,13 @@
+.git
+.gitignore
+.idea
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+reports/
+.env*
+NOTES.md
+.claude
+.claudeignore

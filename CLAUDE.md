@@ -11,6 +11,7 @@ Resume repository
 - UI tests: Playwright 
 - API tests: requests, Pydantic
 - CI: GitHub Actions
+- Containerization: Docker
 - ORM: SQLAlchemy 
 - Monitoring/metrics: Datadog (datadog-api-client)
 
@@ -60,6 +61,10 @@ automatedtests/
         └── test_db.py                  # SQLAlchemy DB query tests
 conftest.py         # pytest fixtures: browser, page, page objects
 pyproject.toml      # dependencies and pytest configuration
+Dockerfile           # container image: deps via uv, Playwright chromium, default CMD runs smoke suite
+.github/
+└── workflows/
+    └── ci.yml        # builds Docker image and runs smoke tests on push/PR to master
 
 ## Page Class Hierarchy                                                                                                     
   BasePage → CommonPage → CommonPageBlocks → <PageName>                                                                           
