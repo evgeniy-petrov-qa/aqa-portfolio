@@ -20,6 +20,8 @@ from automatedtests.pages.settings import URLs, settings
 from automatedtests.pages.pages.main_page import MainPage
 from automatedtests.pages.pages.login_page import LoginPage
 from automatedtests.pages.pages.study_tracker_page import StudyTrackerPage
+from automatedtests.pages.pages.nomads_main_page import NomadsMainPage
+from automatedtests.pages.blocks.nomads_main_page_blocks import NomadsMainPageBlocks
 
 load_dotenv()
 
@@ -164,4 +166,12 @@ def login_page_blocks(page: Page, urls: URLs) -> LoginPageBlocks:
 @pytest.fixture
 def study_tracker_page(page: Page, urls: URLs) -> StudyTrackerPage:
     return StudyTrackerPage(page, urls)
+
+@pytest.fixture
+def nomads_main_page(page: Page, urls: URLs) -> NomadsMainPage:
+    return NomadsMainPage(page, urls)
+
+@pytest.fixture
+def nomads_main_page_blocks(page: Page, urls: URLs) -> NomadsMainPageBlocks:
+    return NomadsMainPageBlocks(page, urls)
 

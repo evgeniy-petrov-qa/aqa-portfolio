@@ -1,6 +1,6 @@
 
 from typing import Optional
-from playwright.sync_api import Page, expect, TimeoutError as PlaywrightTimeoutError, FrameLocator
+from playwright.sync_api import Page, expect, TimeoutError as PlaywrightTimeoutError, FrameLocator, BrowserContext
 
 
 class BasePage:
@@ -67,6 +67,20 @@ class BasePage:
         :raises IndexError: If no tab with the given index exists.
         """
         self.page = self.page.context.pages[index]
+
+    def wait_for_new_tab(self) -> BrowserContext:
+        """
+        Return a context manager that resolves to a newly opened Page.
+
+        Usage::
+
+            with self.wait_for_new_tab() as tab_info:
+                self.some_link.click()
+            new_page = tab_info.value
+
+        :return: EventContextManager yielding the new Page.
+        """
+        return self.page.context.expect_page()
  
     def get_iframe(self, selector: str) -> FrameLocator:
         """

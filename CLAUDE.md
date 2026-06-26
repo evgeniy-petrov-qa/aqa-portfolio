@@ -34,7 +34,7 @@ automatedtests/
 ├── integrations/
 │   └── datadog.py                      # sends events to Datadog
 ├── pages/
-│   ├── base.py                         # BasePage — navigation, page properties
+│   ├── base.py                         # BasePage — navigation, page properties, wait_for_new_tab()
 │   ├── element.py                      # Element — wrapper over Playwright Locator
 │   ├── settings.py                     # URLs, Settings (Pydantic)
 │   ├── api/
@@ -45,16 +45,19 @@ automatedtests/
 │   ├── blocks/
 │   │   ├── common_page_block.py        # header / footer — shared blocks for all pages
 │   │   ├── login_page_blocks.py        # login page blocks
-│   │   └── main_page_blocks.py         # main page blocks
+│   │   ├── main_page_blocks.py         # main page blocks
+│   │   └── nomads_main_page_blocks.py  # nomads.com — composite actions
 │   └── pages/
 │       ├── common_page.py              # CommonPage — connects BasePage with URLs
 │       ├── login_page.py               # LoginPage
 │       ├── main_page.py                # MainPage — QA Playground main page
+│       ├── nomads_main_page.py         # NomadsMainPage — nomads.com
 │       └── study_tracker_page.py       # StudyTrackerPage — Study Tracker dashboard
 └── tests/
     ├── ui/
     │   ├── test_login_page.py
-    │   └── test_main_page.py
+    │   ├── test_main_page.py
+    │   └── test_nomads_page.py
     ├── api/
     │   └── test_checking_acct_details.py
     └── db/
@@ -80,7 +83,8 @@ Dockerfile           # container image: deps via uv, Playwright chromium, defaul
   - @pytest.mark.ui       — all UI tests (Playwright)
   - @pytest.mark.api      — all API tests (requests)
   - @pytest.mark.regression — full regression suite
-  - Code must be documented in English
+- All assert statements must include a human-readable error message: `assert <condition>, f"<message>"`
+- Code must be documented in English
 
 ## API Tests
 

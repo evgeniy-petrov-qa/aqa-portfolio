@@ -10,6 +10,7 @@ class URLs(BaseModel):
 
     qa_playground: str
     firstplaidypusbank: str
+    nomads: str
 
 
     @field_validator("*", mode="before")

@@ -1,5 +1,6 @@
 {
     "env": "test",
     "qa_playground": "https://qaplayground.com",
-    "firstplaidypusbank": "https://api.firstplaidypusbank.plaid.com"
+    "firstplaidypusbank": "https://api.firstplaidypusbank.plaid.com",
+    "nomads": "https://nomads.com"
 }
