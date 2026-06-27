@@ -43,7 +43,7 @@ automatedtests/
 │   │   └── respons_models/
 │   │       └── <entity>_models.py      # Pydantic models for API responses
 │   ├── blocks/
-│   │   ├── common_page_block.py        # header / footer — shared blocks for all pages
+│   │   ├── common_page_block.py        # CommonPageBlocks — universal base for all page objects
 │   │   ├── login_page_blocks.py        # login page blocks
 │   │   ├── main_page_blocks.py         # main page blocks
 │   │   └── nomads_main_page_blocks.py  # nomads.com — composite actions
@@ -69,9 +69,8 @@ Dockerfile           # container image: deps via uv, Playwright chromium, defaul
 └── workflows/
     └── ci.yml        # builds Docker image and runs smoke tests on push/PR to master
 
-## Page Class Hierarchy                                                                                                     
-  BasePage → CommonPage → CommonPageBlocks → <PageName>                                                                           
-                                           └── <PageName>Blocks 
+## Page Class Hierarchy
+  BasePage → CommonPage → CommonPageBlocks → <PageName> → <PageName>Blocks
 
 ##  Conventions
 - Test names: test_<action>_<expected_result>

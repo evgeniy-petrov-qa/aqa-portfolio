@@ -1,9 +1,9 @@
 """Page Object for nomads.com."""
+from automatedtests.pages.blocks.common_page_block import CommonPageBlocks
 from automatedtests.pages.element import Element
-from automatedtests.pages.pages.common_page import CommonPage
 
 
-class NomadsMainPage(CommonPage):
+class NomadsMainPage(CommonPageBlocks):
     """nomads.com main page."""
 
     # ------------------------------------------------------------------

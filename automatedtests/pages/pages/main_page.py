@@ -16,6 +16,34 @@ class MainPage(CommonPageBlocks):
     """
 
     # ------------------------------------------------------------------
+    # Header / Navbar
+    # ------------------------------------------------------------------
+
+    @property
+    def nav_logo(self) -> Element:
+        """QA PlayGround logo in the header."""
+        return Element(self.page.locator("header a[href='/']").first)
+
+    # ------------------------------------------------------------------
+    # Footer
+    # ------------------------------------------------------------------
+
+    @property
+    def footer_login_link(self) -> Element:
+        """«Login» link in the footer."""
+        return Element(self.page.locator("footer a[href='/login']"))
+
+    @property
+    def footer_privacy_link(self) -> Element:
+        """«Privacy Policy» link in the footer."""
+        return Element(self.page.locator("footer a[href='/privacy-policy']"))
+
+    @property
+    def footer_copyright(self) -> Element:
+        """Copyright text block in the footer."""
+        return Element(self.page.locator("footer").get_by_text("QA Playground. All rights reserved"))
+
+    # ------------------------------------------------------------------
     # Hero section
     # ------------------------------------------------------------------
 
