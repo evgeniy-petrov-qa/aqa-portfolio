@@ -1,6 +1,6 @@
 
 from typing import Optional
-from playwright.sync_api import Page, expect, TimeoutError as PlaywrightTimeoutError, FrameLocator, BrowserContext
+from playwright.sync_api import Page, expect, FrameLocator, BrowserContext
 
 
 class BasePage:
