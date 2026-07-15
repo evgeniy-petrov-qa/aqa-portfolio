@@ -34,7 +34,7 @@ class LoginPage(CommonPageBlocks):
     @property
     def sign_in_button(self) -> Element:
         """«Sign In» button."""
-        return Element(self.page.get_by_role("button", name="Sign In"))
+        return Element(self.page.get_by_test_id("sign-in-submit"))
 
     @property
     def forgot_password_link(self) -> Element:
@@ -54,7 +54,7 @@ class LoginPage(CommonPageBlocks):
     @property
     def error_auth_message_text(self) -> Element:
         """Auth error message text."""
-        return Element(self.page.get_by_test_id("login-error"))
+        return Element(self.page.get_by_test_id("sign-in-error"))
 
     @property
     def continue_with_email_button(self) -> Element:
@@ -70,7 +70,7 @@ class LoginPage(CommonPageBlocks):
 
         :param url: Ignored — URL is fixed via urls.qa_playground.
         """
-        super().open_url(f"{self.urls.qa_playground}/login")
+        super().open_url(f"{self.urls.qa_playground}/auth/sign-in")
 
     def click_continue_with_email_button(self) -> None:
         try:

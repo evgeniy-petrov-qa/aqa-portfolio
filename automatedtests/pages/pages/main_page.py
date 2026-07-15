@@ -31,7 +31,7 @@ class MainPage(CommonPageBlocks):
     @property
     def footer_login_link(self) -> Element:
         """«Login» link in the footer."""
-        return Element(self.page.locator("footer a[href='/login']"))
+        return Element(self.page.locator("footer a[href='/auth/sign-in']"))
 
     @property
     def footer_privacy_link(self) -> Element:

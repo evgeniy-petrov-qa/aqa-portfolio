@@ -1,7 +1,4 @@
 import pytest
-from playwright.sync_api import expect
-
-from automatedtests.data.test_data import TestData
 
 
 @pytest.mark.ui
@@ -16,8 +13,7 @@ class TestLoginPage:
     ) -> None:
         login_page.open_login_page()
         login_page_blocks.login_success()
-        study_tracker_page.should_have_url(f"{login_page.urls.qa_playground}/study-tracker/dashboard")
-        study_tracker_page.heading.should_be_visible()
+        study_tracker_page.should_have_url(f"{login_page.urls.qa_playground}/dashboard")
 
 
     @pytest.mark.regression

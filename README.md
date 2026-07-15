@@ -64,7 +64,7 @@ for https://qaplayground.com/
 
 ## Key design decisions
 
-- **Page Object Model** with hierarchy `BasePage → CommonPage → Blocks → Page`
+- **Page Object Model** with hierarchy `BasePage → CommonPage → CommonPageBlocks → Page → PageBlocks`; `CommonPageBlocks` captures JS console errors automatically per page navigation
 - **API client** with endpoint registry, Pydantic validation, and retry (429, 5xx)
 - **DB layer** — SQLAlchemy organization example with savepoint fixture (transaction rollback after each test). Tests marked `@pytest.mark.skip`
 - **Datadog integration** — example of sending alerts when infrastructure is unavailable
