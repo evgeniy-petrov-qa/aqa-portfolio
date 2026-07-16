@@ -13,6 +13,8 @@ from sqlalchemy.exc import OperationalError
 
 from automatedtests.db.connection import get_session_factory
 from automatedtests.integrations.datadog import send_event_to_datadog
+from automatedtests.pages.blocks.af_apps_page_blocks import AfAppsPageBlocks
+from automatedtests.pages.blocks.af_login_page_block import AfLoginPageBlock
 from automatedtests.pages.blocks.main_page_blocks import MainPageBlocks
 from automatedtests.pages.blocks.login_page_blocks import LoginPageBlocks
 from automatedtests.pages.settings import URLs, settings
@@ -175,3 +177,10 @@ def nomads_main_page(page: Page, urls: URLs) -> NomadsMainPage:
 def nomads_main_page_blocks(page: Page, urls: URLs) -> NomadsMainPageBlocks:
     return NomadsMainPageBlocks(page, urls)
 
+@pytest.fixture
+def af_login_page_blocks(page: Page, urls: URLs) -> AfLoginPageBlock:
+    return AfLoginPageBlock(page, urls)
+
+@pytest.fixture
+def af_apps_page_blocks(page: Page, urls: URLs) -> AfAppsPageBlocks:
+    return AfAppsPageBlocks(page, urls)

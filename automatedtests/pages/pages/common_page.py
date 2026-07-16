@@ -32,11 +32,3 @@ class CommonPage(BasePage):
         """
         super().__init__(page)
         self.urls = urls
-
-    # ------------------------------------------------------------------
-    # Opening environments
-    # ------------------------------------------------------------------
-
-    def open_qa_playground(self) -> None:
-        """Open QA Playground."""
-        self.open_url(self.urls.qa_playground)

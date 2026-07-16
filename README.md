@@ -51,6 +51,9 @@ uv run pytest -m smoke
 
 # UI only
 uv run pytest -m ui
+
+#test for appfollow team
+uv run pytest -m appfollow
 ```
 
 ## Environment variables
@@ -60,6 +63,7 @@ Create a `.env` file in the project root:
 ```env
 Copy `.env.example` to `.env` and fill in the variables
 for https://qaplayground.com/
+for https://appfollow.io/
 ```
 
 ## Key design decisions

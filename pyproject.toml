@@ -36,4 +36,5 @@ markers = [
     "regression: полный регрессионный набор",
     "ui: все UI-тесты (Playwright)",
     "api: все API-тесты (requests)",
+    "appfollow: тестовое задание для команды appfollow"
 ]
