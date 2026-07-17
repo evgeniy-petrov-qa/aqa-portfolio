@@ -7,7 +7,7 @@ from automatedtests.data.test_data import TestData
 class TestAfAppsPage:
 
     def test_add_app_to_new_workspace(self, af_login_page_blocks, af_apps_page_blocks):
-        workspace_name = TestData.generate_workflow_name()
+        workspace_name = TestData.generate_workspace_name()
         try:
             af_login_page_blocks.appfollow_log_in()
             af_apps_page_blocks.open_apps_page()

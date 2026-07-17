@@ -15,7 +15,7 @@ class TestData:
         return "not-an-email"
 
     @staticmethod
-    def generate_workflow_name() -> str:
+    def generate_workspace_name() -> str:
         """Generates a random workflow name in the format 'test_{12345}'."""
         return f"test_{random.randint(10000, 99999)}"
 
